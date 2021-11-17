@@ -1,5 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const mainRouter = require("./routers/routes/todoRout");
+dotenv.config();
 
 const app = express();
 
