@@ -1,17 +1,8 @@
-const { application } = require("express");
+const { express } = require("express");
 
-const toDoList = [
-  { id: 0, task: "sleep", isComplete: false },
-  { id: 1, task: "eat", isComplete: false },
-  { id: 2, task: "sleep", isComplete: false },
-];
+const mainRouter = express.Router();
 
-// const addToDo = (req, res) => {
-//     let newTask = {id: toDoList.length, name: }
-// }
+mainRouter.post("/addtask", addToDo)
 
-app.post("/addtask", (req, res) => {
-    const {id, name, isComplete} = req.body;
-    toDoList.push({id: toDoList.length, name: req.body, isComplete: false});
-    res.status(201).json({id, name, isComplete});
-});
+
+module.exports = mainRouter;
