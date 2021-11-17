@@ -4,13 +4,15 @@ const {
   addToDo,
   updateTask,
   deleteTask,
+  completed,
 } = require("../controllers/todoCont");
 
 const mainRouter = express.Router();
 
-mainRouter.post("/addtask", addToDo);
+mainRouter.post("/", addToDo);
 mainRouter.get("/", getAllTasks);
-mainRouter.put("/edit/:name", updateTask);
-mainRouter.delete("/deleteTask", deleteTask);
+mainRouter.put("/:name", updateTask);
+mainRouter.delete("/", deleteTask);
+mainRouter.put("/", completed);
 
 module.exports = mainRouter;
