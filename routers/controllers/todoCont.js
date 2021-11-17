@@ -6,16 +6,21 @@ const toDoList = [
   { id: 2, task: "sleep", isComplete: false },
 ];
 
-// const addToDo = (req, res) => {
-//     let newTask = {id: toDoList.length, name: }
-// }
-
+//adding tasks
 const addToDo = (req, res) => {
   const { id, name, isComplete } = req.body;
   toDoList.push({ id: toDoList.length, name: req.body, isComplete: false });
   res.status(201).json({ id, name, isComplete });
 };
 
+//getting all tasks
+const getAllTasks = (req, res) => {
+  res.status(200).json(toDoList);
+};
+
+
+
 module.exports = {
   addToDo,
+  getAllTasks,
 };
