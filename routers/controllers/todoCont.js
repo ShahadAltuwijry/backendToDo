@@ -18,9 +18,34 @@ const getAllTasks = (req, res) => {
   res.status(200).json(toDoList);
 };
 
+//update tasks 
+const updateTask = (req, res) => {
+    const { name } = req.params;
+    const { editedTask } = req.body;
 
+    toDoList.forEach((ele) => {
+        if (ele.name === name) {
+            ele.name = editedTask
+        }
+    });
+    res.status(200).json(editedTask)
+    console.log(toDoList);
+};
+
+//delete tasks
+const deleteTask = (req, res) => {
+    const { name } = req.body;
+
+    toDoList.forEach((item, i) => {
+        if (item.name === name) {
+            toDoList.splice(i, 1);
+        }
+    });
+}
 
 module.exports = {
   addToDo,
   getAllTasks,
+  updateTask,
+  deleteTask,
 };
