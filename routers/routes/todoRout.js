@@ -13,6 +13,6 @@ mainRouter.post("/", addToDo);
 mainRouter.get("/", getAllTasks);
 mainRouter.put("/:name", updateTask);
 mainRouter.delete("/", deleteTask);
-mainRouter.put("/", completed);
+mainRouter.put("/:name", completed);
 
 module.exports = mainRouter;
