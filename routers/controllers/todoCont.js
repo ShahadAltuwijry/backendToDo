@@ -1,8 +1,6 @@
-
-
 const toDoList = [
   { id: 0, task: "sleep", isComplete: false },
-  { id: 1, task: "eat", isComplete: false },
+  { id: 1, task: "eat", isComplete: true },
   { id: 2, task: "sleep", isComplete: false },
 ];
 
@@ -15,6 +13,8 @@ const addToDo = (req, res) => {
 
 //getting all tasks
 const getAllTasks = (req, res) => {
+  // toDoList.forEach((ele) => {
+  //   if (ele.isComplete == false) {
   res.status(200).json(toDoList);
 };
 

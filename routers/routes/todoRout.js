@@ -9,10 +9,10 @@ const {
 
 const mainRouter = express.Router();
 
-mainRouter.post("/", addToDo);
-mainRouter.get("/", getAllTasks);
-mainRouter.put("/:name", updateTask);
-mainRouter.delete("/", deleteTask);
-mainRouter.put("/:name", completed);
+mainRouter.post("/todos", addToDo);
+mainRouter.get("/todos", getAllTasks);
+mainRouter.put("/todos/:name", updateTask);
+mainRouter.delete("/todos", deleteTask);
+mainRouter.put("/todos/:name", completed);
 
 module.exports = mainRouter;

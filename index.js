@@ -6,10 +6,9 @@ const mainRouter = require("./routers/routes/todoRout");
 
 const app = express();
 
-app.use("/todolist", mainRouter);
+app.use("/", mainRouter);
 
 dotenv.config();
-
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
