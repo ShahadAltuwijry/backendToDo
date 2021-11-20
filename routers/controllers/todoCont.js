@@ -1,14 +1,14 @@
 const toDoList = [
-  { id: 0, task: "sleep", isComplete: false },
-  { id: 1, task: "eat", isComplete: true },
-  { id: 2, task: "sleep", isComplete: false },
+  { id: 0, task: "sleep", isCompleted: false, isDeleted: false },
+  { id: 1, task: "eat", isCompleted: true, isDeleted: false },
+  { id: 2, task: "sleep", isCompleted: false, isDeleted: false },
 ];
 
 //adding tasks
 const addToDo = (req, res) => {
-  const { id, name, isComplete } = req.body;
-  toDoList.push({ id: toDoList.length, name: req.body, isComplete: false });
-  res.status(201).json({ id, name, isComplete });
+  const { id, task, isComplete } = req.body;
+  toDoList.push({ id: toDoList.length, task: req.body, isComplete: false });
+  res.status(201).json({ id, task, isComplete });
 };
 
 //getting all tasks
@@ -20,12 +20,12 @@ const getAllTasks = (req, res) => {
 
 //update tasks name
 const updateTask = (req, res) => {
-  const { name } = req.params;
+  const { id } = req.params;
   const { editedTask } = req.body;
 
   toDoList.forEach((ele) => {
-    if (ele.name === name) {
-      ele.name = editedTask;
+    if (ele.task === task) {
+      ele.task = editedTask;
     }
   });
   res.status(200).json(editedTask);
@@ -34,11 +34,11 @@ const updateTask = (req, res) => {
 
 //update task status to complete
 const completed = (req, res) => {
-  const { name } = req.params;
+  const { id } = req.params;
 
   toDoList.forEach((ele) => {
-    if (ele.name === name) {
-      name.isComplete = !isComplete;
+    if (ele.task === task) {
+      toDoList.isComplete = !isComplete;
     }
   });
   res.status(200).json(toDoList);
@@ -46,11 +46,12 @@ const completed = (req, res) => {
 
 //delete tasks
 const deleteTask = (req, res) => {
-  const { name } = req.body;
-
-  toDoList.forEach((item, i) => {
-    if (item.name === name) {
-      toDoList.splice(i, 1);
+  const { id } = req.params;
+  console.log(res);
+  console.log(id);
+  toDoList.forEach((item, id) => {
+    if (item.id == toDoList.id) {
+      !toDoList.isDeleted;
     }
   });
 };

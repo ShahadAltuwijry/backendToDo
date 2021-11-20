@@ -11,8 +11,8 @@ const mainRouter = express.Router();
 
 mainRouter.post("/todos", addToDo);
 mainRouter.get("/todos", getAllTasks);
-mainRouter.put("/todos/:name", updateTask);
-mainRouter.delete("/todos", deleteTask);
-mainRouter.put("/todos/:name", completed);
+mainRouter.put("/todos/:id", updateTask);
+mainRouter.delete("/todos/:id", deleteTask);
+mainRouter.put("/todos/:id", completed);
 
 module.exports = mainRouter;
