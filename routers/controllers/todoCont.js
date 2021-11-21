@@ -47,13 +47,24 @@ const completed = (req, res) => {
 //delete tasks
 const deleteTask = (req, res) => {
   const { id } = req.params;
-  console.log(res);
-  console.log(id);
-  toDoList.forEach((item, id) => {
-    if (item.id == toDoList.id) {
-      !toDoList.isDeleted;
-    }
-  });
+  let idx = 0;
+  try {
+    const find = toDoList.find((item, id) => {
+      idx = i;
+      return item.id === Number(id);
+    });
+
+    if (find) {
+      if (find.isDeleted) {
+        res.status(404).json(toDoList);
+      } else {
+        toDoList[idx].isDeleted = true;
+        res.status(200).json(toDoList);
+      }
+    } else res.status(400).json("thid task doesn't exist");
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
 };
 
 module.exports = {
